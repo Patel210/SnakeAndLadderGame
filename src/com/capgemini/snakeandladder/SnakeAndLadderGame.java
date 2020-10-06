@@ -4,6 +4,7 @@ public class SnakeAndLadderGame {
 	private static int position = 0;
 	private static final int LADDER = 1;
 	private static final int SNAKE = 2;
+	private static int noOfTimesDieRolled = 0;
 
 	public static void main(String[] args) {
 		System.out.println("Player at Start Position: " + position);
@@ -28,7 +29,11 @@ public class SnakeAndLadderGame {
 					position = 0; // To restrict player from position > 100
 				}
 			}
+
+			noOfTimesDieRolled++;
+
+			System.out.println("Position after " + noOfTimesDieRolled + " roll: " + position);
 		}
-		System.out.println("Player reached: " + position);
+		System.out.println("Number of Times die rolled to win the game: " + noOfTimesDieRolled);
 	}
 }
