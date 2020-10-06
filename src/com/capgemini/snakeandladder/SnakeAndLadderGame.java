@@ -8,18 +8,22 @@ public class SnakeAndLadderGame {
 	public static void main(String[] args) {
 		System.out.println("Player at Start Position: " + position);
 
-		int numberOnDie = (int) ((Math.random()) * 6) + 1;
-		
-		int checkPlay = (int) Math.floor(Math.random() * 10) % 3;
-		if (checkPlay == LADDER) {
-			System.out.println("Horray! You got a ladder!");
-			position += numberOnDie;
-		}
-		else if (checkPlay == SNAKE) {
-			System.out.println("Bummer! You got a snake!");
-			position -= numberOnDie;
-		}
+		while (position != 100) {
+			int numberOnDie = (int) ((Math.random()) * 6) + 1; // Die Roll
 
-		System.out.println("Postition after playing the die: " + position);
+			int checkPlay = (int) Math.floor(Math.random() * 10) % 3; // Check Play Options
+			if (checkPlay == LADDER) {
+				System.out.println("Horray! You got a ladder!");
+				position += numberOnDie;
+			} else if (checkPlay == SNAKE) {
+				System.out.println("Bummer! You got a snake!");
+				position -= numberOnDie;
+				
+				if (position <= 0) {
+					position = 0;
+				}
+			}
+		}
+		System.out.println("Player reached: " + position);
 	}
 }
