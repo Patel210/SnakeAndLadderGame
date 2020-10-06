@@ -15,12 +15,17 @@ public class SnakeAndLadderGame {
 			if (checkPlay == LADDER) {
 				System.out.println("Horray! You got a ladder!");
 				position += numberOnDie;
+
+				if (position > 100) { // To restrict player from position > 100
+					position -= numberOnDie;
+				}
+
 			} else if (checkPlay == SNAKE) {
 				System.out.println("Bummer! You got a snake!");
 				position -= numberOnDie;
-				
+
 				if (position <= 0) {
-					position = 0;
+					position = 0; // To restrict player from position > 100
 				}
 			}
 		}
